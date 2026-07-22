@@ -88,7 +88,7 @@ h1{ font-family: 'Special Elite', monospace; font-weight: 400; margin: 0; }
   transform: rotate(-1deg);
   transition: transform .15s ease, background .15s ease;
 }
-.cta:hover{ transform: rotate(0deg); background: rgba(243,236,217,0.1); }
+.cta:hover{ transform: rotate(0deg); background: rgba(233, 217, 243, 0.208);}
 .cta:focus-visible{ outline: 2px solid var(--lilac); outline-offset: 3px; }
 .cta--fill{ background: var(--lilac-ink); border-style: solid; border-color: var(--lilac-ink); color: var(--cream); }
 .cta--fill:hover{ background: #6a4386; }
@@ -215,7 +215,7 @@ main{ max-width: 780px; margin: 0 auto; padding: 0 1.5rem 1rem; }
 .contact{
   max-width: 780px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 4.5rem;
+  padding: 0.25rem 1.5rem 4.5rem;
   text-align: center;
 }
 .contact h2{ font-family: 'Special Elite', monospace; font-size: 1.25rem; margin-bottom: 0.6rem; color: var(--cream); }
