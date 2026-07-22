@@ -1,0 +1,232 @@
+:root{
+  --bg: #8e9a65;
+  --bg-line: rgba(255,255,255,0.09);
+  --card: #f3ecd9;
+  --card-line: rgba(51,48,31,0.08);
+  --ink: #33301f;
+  --ink-soft: rgba(51,48,31,0.68);
+  --cream: #f3ecd9;
+  --lilac: #c9a8e0;
+  --lilac-ink: #7b4f9c;
+  --moss: #48592f;
+  --tape: rgba(243,236,217,0.6);
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition-duration: 0.01ms !important; }
+}
+
+body{
+  margin:0;
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(0deg, var(--bg-line) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, var(--bg-line) 0 1px, transparent 1px 40px);
+  color: var(--ink);
+  font-family: 'Courier Prime', monospace;
+  line-height: 1.65;
+}
+
+a{ color: inherit; }
+h1{ font-family: 'Special Elite', monospace; font-weight: 400; margin: 0; }
+.typed{ font-family: 'Special Elite', monospace; }
+.hand{ font-family: 'Caveat', cursive; }
+
+/* ---------- HERO (directly on the green mat, like the Page3 post) ---------- */
+.hero{
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.hero__text{ flex: 1; min-width: 0; }
+.eyebrow{
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'Special Elite', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin: 0 0 1.1rem;
+}
+.eyebrow .star{ width: 12px; height: 12px; fill: var(--lilac); flex-shrink: 0; }
+
+.hero h1{
+  font-size: clamp(1.7rem, 4.4vw, 2.5rem);
+  line-height: 1.3;
+  margin-bottom: 1.1rem;
+  color: var(--cream);
+}
+.hero h1 .bold{ color: var(--lilac); }
+
+.hero .lede{
+  max-width: 440px;
+  color: rgba(243,236,217,0.82);
+  font-size: 0.95rem;
+  margin: 0 0 1.7rem;
+}
+
+.stamp{ flex-shrink: 0; width: 150px; height: 150px; transform: rotate(-11deg); opacity: 0.95; }
+
+.cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Special Elite', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 0.65rem 1.35rem;
+  border: 2px dashed var(--cream);
+  color: var(--cream);
+  border-radius: 3px;
+  transform: rotate(-1deg);
+  transition: transform .15s ease, background .15s ease;
+}
+.cta:hover{ transform: rotate(0deg); background: rgba(243,236,217,0.1); }
+.cta:focus-visible{ outline: 2px solid var(--lilac); outline-offset: 3px; }
+.cta--fill{ background: var(--lilac-ink); border-style: solid; border-color: var(--lilac-ink); color: var(--cream); }
+.cta--fill:hover{ background: #6a4386; }
+
+/* on cream cards, the dashed cta needs dark ink instead of cream */
+.cta--onpaper{ border-color: var(--lilac-ink); color: var(--lilac-ink); }
+.cta--onpaper:hover{ background: rgba(123,79,156,0.08); }
+
+.cta--plain{
+  font-family: 'Caveat', cursive;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--moss);
+  transform: none;
+}
+.cta--plain:hover{ color: var(--ink); }
+
+/* ---------- shared "paper on the mat" look ---------- */
+.sheet{
+  background: var(--card);
+  box-shadow: 0 10px 24px -14px rgba(30,28,15,0.45);
+}
+
+/* ---------- TOC ---------- */
+.toc-wrap{ max-width: 780px; margin: 0 auto; padding: 0 1.5rem 2.6rem; }
+.toc{
+  padding: 1.6rem 1.8rem 1.8rem;
+  transform: rotate(-0.4deg);
+}
+.toc__title{ font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ink-soft); margin-bottom: 0.9rem; }
+.toc-item{
+  display: flex; align-items: baseline; gap: 0.5rem;
+  text-decoration: none; color: var(--ink);
+  padding: 0.35rem 0;
+  font-size: 1rem;
+}
+.toc-item .fill{ flex: 1; border-bottom: 1px dotted var(--ink-soft); position: relative; top: -5px; }
+.toc-item .num{ font-family: 'Special Elite', monospace; font-size: 0.78rem; color: var(--ink-soft); }
+.toc-item:hover .label{ color: var(--lilac-ink); }
+
+/* highlighted by script.js while its section is in view */
+.toc-item.is-active .label{ color: var(--lilac-ink); font-weight: 700; }
+.toc-item.is-active .num{ color: var(--lilac-ink); }
+
+/* ---------- SQUIGGLE DIVIDER ---------- */
+.squiggle{ display: flex; justify-content: center; padding: 0.2rem 0 1.8rem; }
+.squiggle svg{ width: 90px; height: 18px; }
+
+/* ---------- PROFILES ---------- */
+main{ max-width: 780px; margin: 0 auto; padding: 0 1.5rem 1rem; }
+
+.profile{
+  position: relative;
+  padding: 2.1rem 2rem 2rem 2.6rem;
+  margin-bottom: 2.6rem;
+  background-image: repeating-linear-gradient(var(--card) 0 31px, var(--card-line) 31px 32px);
+  transition: transform .2s ease;
+}
+.profile:hover{ transform: rotate(0deg) !important; }
+.profile::before{
+  content: "";
+  position: absolute;
+  left: 34px; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--lilac-ink);
+  opacity: 0.3;
+}
+.profile--a{ transform: rotate(-0.6deg); }
+.profile--b{ transform: rotate(0.5deg); }
+.profile--c{ transform: rotate(-0.4deg); }
+
+.tape{
+  position: absolute;
+  top: -14px; left: 50%;
+  width: 90px; height: 28px;
+  background: var(--tape);
+  box-shadow: 0 2px 4px rgba(30,28,15,0.2);
+}
+.profile--a .tape{ transform: translateX(-50%) rotate(-3deg); }
+.profile--b .tape{ transform: translateX(-50%) rotate(2deg); }
+.profile--c .tape{ transform: translateX(-50%) rotate(-1.5deg); }
+
+.profile__name{ font-size: 1.4rem; margin-bottom: 0.2rem; }
+.profile__role{ font-family: 'Caveat', cursive; font-size: 1.15rem; color: var(--ink-soft); margin: 0 0 1.1rem; }
+
+.tags{ display: flex; flex-wrap: wrap; gap: 0.2rem 0.3rem; margin-bottom: 0.6rem; }
+.tag{
+  position: relative;
+  display: inline-block;
+  padding: 0.3rem 0.5rem 0.35rem;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+}
+.tag--lilac{ text-decoration-color: var(--lilac-ink); }
+.tag--moss{ text-decoration-color: var(--moss); }
+
+.formacao{
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  color: var(--lilac-ink);
+  margin: 0.4rem 0 1rem;
+}
+
+.bio{
+  font-size: 0.86rem;
+  color: var(--ink);
+  max-width: 58ch;
+  margin: 0 0 1.2rem;
+  border-left: 2px solid var(--card-line);
+  padding-left: 0.9rem;
+}
+
+/* ---------- FOOTER (back on the green mat, bookends the hero) ---------- */
+.contact{
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4.5rem;
+  text-align: center;
+}
+.contact h2{ font-family: 'Special Elite', monospace; font-size: 1.25rem; margin-bottom: 0.6rem; color: var(--cream); }
+.contact p{ color: rgba(243,236,217,0.78); font-size: 0.88rem; max-width: 420px; margin: 0 auto 1.6rem; }
+.contact__buttons{ display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.3rem; }
+
+@media (max-width: 620px){
+  .hero{ flex-direction: column; text-align: center; padding-top: 3.5rem; }
+  .hero .lede{ margin-left: auto; margin-right: auto; }
+  .eyebrow{ justify-content: center; }
+  .stamp{ width: 118px; height: 118px; }
+  .profile{ padding-left: 2rem; }
+  .profile::before{ left: 14px; }
+}
